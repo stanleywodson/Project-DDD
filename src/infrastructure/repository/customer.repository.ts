@@ -14,14 +14,26 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
 			postalCode: entity.Address.postalCode
 		})
 	}
-	// update(entity: Customer): Promise<void> {
-	// 	throw new Error('Method not implemented.')
-	// }
-	// find(id: string): Promise<Customer> {
-	// 	throw new Error('Method not implemented.')
-	// }
-	// findAll(): Promise<Customer[]> {
-	// 	throw new Error('Method not implemented.')
-	// }
-	
+	async update(entity: Customer): Promise<void> {
+		await CustomerModel.update({
+			name: entity.Name,
+			street: entity.Address.street,
+			city: entity.Address.city,
+			state: entity.Address.state,
+			active: entity.isActive,
+			postalCode: entity.Address.postalCode
+
+		}, { where: { id: entity.Id } })
+	}
+	async find(id: string): Promise<Customer> {
+		const customerModel = await CustomerModel.findOne({ where: { id } })
+		return new Customer(
+			customerModel.id,
+			customerModel.name,
+		)
+	}
+	findAll(): Promise<Customer[]> {
+		throw new Error('Method not implemented.')
+	}
+
 }

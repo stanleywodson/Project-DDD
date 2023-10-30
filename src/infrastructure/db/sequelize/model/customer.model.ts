@@ -11,6 +11,7 @@ import {
 })
 
 export default class CustomerModel extends Model {
+	[x: string]: any
 	@PrimaryKey
 	@Column
 		id!: string
