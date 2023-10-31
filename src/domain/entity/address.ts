@@ -1,15 +1,31 @@
 export default class Address {
 	constructor(
-		public street: string,
-		public city: string,
-		public state: string,
-		public postalCode: string
+		private street: string,
+		private city: string,
+		private state: string,
+		private postalCode: string
 	) {
 		this.validateProperty('street', street)
 		this.validateProperty('city', city)
 		this.validateProperty('state', state)
 		this.validateProperty('postalCode', postalCode)
 		this.validateState(state)
+	}
+
+	get getStreet(): string {
+		return this.street
+	}
+
+	get getCity(): string {
+		return this.city
+	}
+
+	get getState(): string {
+		return this.state
+	}
+
+	get getPostalCode(): string {
+		return this.postalCode
 	}
 
 	private validateProperty(propertyName: string, value: string) {

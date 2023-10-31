@@ -3,9 +3,9 @@ import Address from './address'
 export default class Customer {
 	private id: string
 	private name: string
-	private active: boolean = false
-	private address!: Address
-
+	private active: boolean = true
+	public address: Address
+	public Address: Address
 
 	constructor(id: string, name: string) {
 		this.id = id
@@ -38,13 +38,12 @@ export default class Customer {
 		// }
 	}
 
-	set Address(address: Address) {
+	changeAddress(address: Address) {
 		this.address = address
 	}
 
 	changeName(name: string) {
 		this.name = name
-		this.validate()
 	}
 
 	activete() {

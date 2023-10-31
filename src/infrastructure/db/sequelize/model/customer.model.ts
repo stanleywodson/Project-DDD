@@ -11,13 +11,15 @@ import {
 })
 
 export default class CustomerModel extends Model {
-	[x: string]: any
 	@PrimaryKey
 	@Column
 		id!: string
 
 	@Column({ allowNull: false })
 		name!: string
+
+	@Column({ allowNull: false })
+		active!: boolean	
 
 	@Column({ allowNull: false })
 		street!: string
