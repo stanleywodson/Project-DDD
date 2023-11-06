@@ -1,4 +1,5 @@
-import EventInterface from '../@shared/eventInterface'
+import EventInterface from '../../@shared/eventInterface'
+
 
 export default class ProductCreatedEvent implements EventInterface {
 
